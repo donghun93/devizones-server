@@ -1,3 +1,7 @@
+spring:
+  config:
+    activate:
+      on-profile: prod
 concurrency:
   like:
     max-retry: ${CONCURRENCY_LIKE_MAX_RETRY}
