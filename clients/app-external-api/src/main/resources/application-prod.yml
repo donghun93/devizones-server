@@ -3,6 +3,7 @@ server:
 
 spring:
   profiles:
+    active: prod
     include:
       - prod-member-rds
       - prod-post-rds
@@ -12,7 +13,7 @@ spring:
       - prod-refresh-token-redis
       - prod-post-application
       - prod-s3
-      
+
 springdoc:
   swagger-ui:
     oauth:
