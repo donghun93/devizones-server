@@ -60,16 +60,16 @@ pipeline {
 
     post {
             success {
-                discordSend title: "Post Service CI/CD 알림",
-                            description: "post-service CI/CD 결과",
-                            footer: "post-service 빌드 및 배포에 성공했습니다.",
+                discordSend title: "Devizones Server CI/CD 알림",
+                            description: "devizones-server CI/CD 결과",
+                            footer: "devizones-server 빌드 및 배포에 성공했습니다.",
                             link: env.BUILD_URL, result: currentBuild.currentResult,
                             webhookURL: env.DISCORD_WEBHOOK_URL
             }
             failure {
-                discordSend title: "Post Service CI/CD 알림",
-                            description: "post-service CI/CD 결과",
-                            footer: "post-service 빛드 및 배포에 실패했습니다.",
+                discordSend title: "Devizones Server CI/CD 알림",
+                            description: "devizones-server CI/CD 결과",
+                            footer: "devizones-server 빛드 및 배포에 실패했습니다.",
                             link: env.BUILD_URL, result: currentBuild.currentResult,
                             webhookURL: env.DISCORD_WEBHOOK_URL
             }
