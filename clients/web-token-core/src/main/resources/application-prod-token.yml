@@ -1,7 +1,3 @@
-spring:
-  config:
-    activate:
-      on-profile: prod
 token:
   tokenSecret: ${JWT_TOKEN_SECRET}
   accessTokenExpirationSeconds: ${JWT_ACCESS_TOKEN_EXPIRATION}
