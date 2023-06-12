@@ -74,8 +74,8 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 
         String targetUrl = redirectUri.orElse(getDefaultTargetUrl());
 
-        log.info("targetUrl: {}", targetUrl);
-        if(pass) targetUrl = "/authorize/redirect";
+        if(pass || targetUrl.equals("/")) targetUrl = "/authorize/redirect";
+
 
         CustomOAuth2User oAuth2User = (CustomOAuth2User) authentication.getPrincipal();
 
