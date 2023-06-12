@@ -1,0 +1,4 @@
+concurrency:
+  like:
+    max-retry: ${CONCURRENCY_LIKE_MAX_RETRY}
+    wait-time: ${CONCURRENCY_LIKE_WAIT_TIME}

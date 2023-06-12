@@ -1,0 +1,14 @@
+project(':applications:event-handler'){
+    bootJar{enabled = false}
+    jar { enabled = true}
+
+    dependencies {
+        implementation 'org.springframework:spring-tx'
+        implementation 'org.springframework:spring-context:6.0.9'
+
+        implementation project(':domains:member-domain')
+        implementation project(':applications:member-application')
+        implementation project(':commons')
+
+    }
+}

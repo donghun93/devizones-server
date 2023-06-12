@@ -1,0 +1,10 @@
+spring:
+  data:
+    redis:
+      host: ${REDIS_HOST}
+      port: ${REDIS_PORT}
+
+caching:
+    member:
+      ttl: ${CACHING_MEMBER_TTL}
+

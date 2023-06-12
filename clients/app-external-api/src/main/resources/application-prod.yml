@@ -1,0 +1,21 @@
+server:
+  port: ${PORT}
+
+spring:
+  profiles:
+    active: prod
+    include:
+      - prod-member-rds
+      - prod-post-rds
+      - prod-oauth2
+      - prod-token
+      - prod-member-cache-redis
+      - prod-refresh-token-redis
+      - prod-post-application
+      - prod-s3
+
+springdoc:
+  swagger-ui:
+    oauth:
+      client-id: ${GOOGLE_CLIENT_ID}
+      client-secret: ${GOOGLE_CLIENT_SECRET}

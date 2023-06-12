@@ -1,0 +1,7 @@
+project(':infra') {
+    bootJar { enabled = false }
+    jar { enabled = true }
+
+    dependencies {
+    }
+}

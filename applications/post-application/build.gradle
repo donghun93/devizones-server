@@ -1,0 +1,15 @@
+project(':applications:post-application') {
+    bootJar { enabled = false }
+    jar { enabled = true }
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter'
+        implementation 'org.springframework.data:spring-data-commons'
+        // Spring Transaction
+        implementation 'org.springframework:spring-tx'
+        implementation project(':applications:member-application')
+        implementation project(':domains:member-domain')
+        implementation project(':domains:post-domain')
+        implementation project(':commons')
+    }
+}

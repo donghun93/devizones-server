@@ -1,0 +1,35 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
+            redirect-uri: ${GOOGLE_REDIRECT_URI}
+            scope:
+              - email
+              - profile
+              - openid
+          kakao:
+            client-id: ${KAKAO_CLIENT_ID}
+            redirect-uri: ${KAKAO_REDIRECT_URI}
+            authorization-grant-type: authorization_code
+            client-authentication-method: client_secret_post
+            client-name: devizones
+            scope:
+              - profile_nickname
+              - account_email
+
+        provider:
+          kakao:
+            issuer-uri: https://kauth.kakao.com
+            authorization-uri: https://kauth.kakao.com/oauth/authorize
+            token-uri: https://kauth.kakao.com/oauth/token
+            user-info-uri: https://kapi.kakao.com/v2/user/me
+            jwk-set-uri: https://kauth.kakao.com/.well-known/jwks.json
+            user-name-attribute: id
+
+oauth2:
+  authorizedRedirectUris:
+    - http://localhost:3001/oauth2/redirect

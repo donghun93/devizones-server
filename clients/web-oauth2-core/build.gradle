@@ -1,0 +1,13 @@
+project(':clients:web-oauth2-core') {
+    bootJar { enabled = false }
+    jar { enabled = true }
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+
+        implementation project(':applications:member-application')
+        implementation project(':clients:web-token-core')
+        implementation project(':infra:refresh-token-redis')
+    }
+}

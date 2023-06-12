@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/applications/member-application/devizones.applications.member-application.main.iml" filepath="$PROJECT_DIR$/.idea/modules/applications/member-application/devizones.applications.member-application.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/applications/post-application/devizones.applications.post-application.main.iml" filepath="$PROJECT_DIR$/.idea/modules/applications/post-application/devizones.applications.post-application.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/clients/app-external-api/devizones.clients.app-external-api.main.iml" filepath="$PROJECT_DIR$/.idea/modules/clients/app-external-api/devizones.clients.app-external-api.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/clients/web-core/devizones.clients.web-core.main.iml" filepath="$PROJECT_DIR$/.idea/modules/clients/web-core/devizones.clients.web-core.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/clients/web-oauth2-core/devizones.clients.web-oauth2-core.main.iml" filepath="$PROJECT_DIR$/.idea/modules/clients/web-oauth2-core/devizones.clients.web-oauth2-core.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/clients/web-token-core/devizones.clients.web-token-core.main.iml" filepath="$PROJECT_DIR$/.idea/modules/clients/web-token-core/devizones.clients.web-token-core.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/commons/devizones.commons.main.iml" filepath="$PROJECT_DIR$/.idea/modules/commons/devizones.commons.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domains/member-domain/devizones.domains.member-domain.main.iml" filepath="$PROJECT_DIR$/.idea/modules/domains/member-domain/devizones.domains.member-domain.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domains/post-domain/devizones.domains.post-domain.main.iml" filepath="$PROJECT_DIR$/.idea/modules/domains/post-domain/devizones.domains.post-domain.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/infra/image-s3/devizones.infra.image-s3.main.iml" filepath="$PROJECT_DIR$/.idea/modules/infra/image-s3/devizones.infra.image-s3.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/infra/member-cache-redis/devizones.infra.member-cache-redis.main.iml" filepath="$PROJECT_DIR$/.idea/modules/infra/member-cache-redis/devizones.infra.member-cache-redis.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/infra/member-rds/devizones.infra.member-rds.main.iml" filepath="$PROJECT_DIR$/.idea/modules/infra/member-rds/devizones.infra.member-rds.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/infra/post-rds/devizones.infra.post-rds.main.iml" filepath="$PROJECT_DIR$/.idea/modules/infra/post-rds/devizones.infra.post-rds.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/infra/refresh-token-redis/devizones.infra.refresh-token-redis.main.iml" filepath="$PROJECT_DIR$/.idea/modules/infra/refresh-token-redis/devizones.infra.refresh-token-redis.main.iml" />
+    </modules>
+  </component>
+</project>

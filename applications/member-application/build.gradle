@@ -1,0 +1,12 @@
+project(':applications:member-application') {
+    bootJar { enabled = false }
+    jar { enabled = true }
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter'
+        // Spring Transaction
+        implementation 'org.springframework:spring-tx'
+        implementation project(':domains:member-domain')
+        implementation project(':commons')
+    }
+}

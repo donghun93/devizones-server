@@ -1,0 +1,17 @@
+project(':infra:image-s3') {
+    bootJar { enabled = false }
+    jar { enabled = true }
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter'
+        // AWS
+        implementation 'io.awspring.cloud:spring-cloud-starter-aws:2.4.4'
+
+        // File Extension
+        implementation group: 'commons-io', name: 'commons-io', version: '2.13.0'
+
+        implementation project(':commons')
+        implementation project(':applications:member-application')
+        implementation project(':applications:post-application')
+    }
+}

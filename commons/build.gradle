@@ -1,0 +1,11 @@
+project(':commons'){
+//bootJar, jar 이 설정이 중요하다고 하셨음
+//부팅이 필요한 것, jar파일로 주입하는 것 확인하고 넣는게 중요
+    bootJar{enabled = false}
+    jar { enabled = true}
+
+    dependencies {
+        // https://mvnrepository.com/artifact/org.springframework/spring-context
+        implementation 'org.springframework:spring-context:6.0.9'
+    }
+}

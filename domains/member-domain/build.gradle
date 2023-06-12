@@ -1,0 +1,10 @@
+project(':domains:member-domain') {
+    bootJar { enabled = false }
+    jar { enabled = true }
+
+    dependencies {
+        implementation 'net.datafaker:datafaker:1.9.0'
+
+        implementation project(':commons')
+    }
+}

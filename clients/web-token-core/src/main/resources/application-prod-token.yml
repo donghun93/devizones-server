@@ -1,0 +1,4 @@
+token:
+    tokenSecret: ${JWT_TOKEN_SECRET}
+    accessTokenExpirationSeconds: ${JWT_ACCESS_TOKEN_EXPIRATION}
+    refreshTokenExpirationSeconds: ${JWT_REFRESH_TOKEN_EXPIRATION}
