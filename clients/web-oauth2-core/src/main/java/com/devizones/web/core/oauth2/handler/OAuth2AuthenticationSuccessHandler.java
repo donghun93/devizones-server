@@ -62,7 +62,6 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
         boolean pass = false;
         if(redirectUri.isPresent()) {
             // - http://localhost:8080/swagger-ui/oauth2-redirect.html
-            log.info("redirectUri {}", redirectUri.get());
             if(redirectUri.get().contains("swagger-ui/oauth2-redirect.html")) {
                 pass = true;
             }
@@ -75,6 +74,7 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 
         String targetUrl = redirectUri.orElse(getDefaultTargetUrl());
 
+        log.info("targetUrl: {}", targetUrl);
         if(pass) targetUrl = "/authorize/redirect";
 
         CustomOAuth2User oAuth2User = (CustomOAuth2User) authentication.getPrincipal();
