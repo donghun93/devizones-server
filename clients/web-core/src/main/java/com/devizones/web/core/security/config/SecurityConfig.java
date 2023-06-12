@@ -39,14 +39,14 @@ public class SecurityConfig {
         http
                 .headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin));
 
-        http
-                .authorizeHttpRequests(request ->
-                        request
-                                .requestMatchers("/api/v1/token/reissue")
-                                .hasRole("MANAGER")
-                                .anyRequest()
-                                .permitAll()
-                );
+//        http
+//                .authorizeHttpRequests(request ->
+//                        request
+//                                .requestMatchers("/api/v1/token/reissue")
+//                                .hasRole("MANAGER")
+//                                .anyRequest()
+//                                .permitAll()
+//                );
 
         return http.build();
     }
