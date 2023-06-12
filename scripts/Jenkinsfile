@@ -13,7 +13,7 @@ pipeline {
         EXTERNAL_PORT = 8080
         INTERNAL_PORT = 8080
 
-        SSH_CMD = 'ssh -i /var/lib/jenkins/.ssh/devizones.pem ubuntu@3.39.180.100
+        SSH_CMD = 'ssh -i /var/lib/jenkins/.ssh/devizones.pem ubuntu@3.39.180.100'
         ENV_FILE = '--env-file=./env/application.env'
         NETWORK = '--net devizones-network'
 
