@@ -3,18 +3,16 @@ server:
 
 spring:
   profiles:
-    active: application-prod
-    group:
-      prod:
-        - prod-member-rds
-        - prod-post-rds
-        - prod-oauth2
-        - prod-token
-        - prod-member-cache-redis
-        - prod-refresh-token-redis
-        - prod-post-application
-        - prod-s3
-
+    include:
+      - prod-member-rds
+      - prod-post-rds
+      - prod-oauth2
+      - prod-token
+      - prod-member-cache-redis
+      - prod-refresh-token-redis
+      - prod-post-application
+      - prod-s3
+      
 springdoc:
   swagger-ui:
     oauth:
