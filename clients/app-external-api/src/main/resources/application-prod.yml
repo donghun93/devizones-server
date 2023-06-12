@@ -3,6 +3,7 @@ server:
 
 spring:
   profiles:
+    active: application-prod
     group:
       prod:
         - prod-member-rds

@@ -7,6 +7,7 @@ project(':clients:app-external-api') {
         implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
         implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
+        implementation 'org.springframework.boot:spring-boot-starter-security'
 
         implementation project(':domains:member-domain')
         implementation project(':domains:post-domain')
@@ -19,12 +20,13 @@ project(':clients:app-external-api') {
 
         implementation project(':applications:member-application')
         implementation project(':applications:post-application')
+        implementation project(':applications:event-handler')
 
         implementation project(':clients:web-oauth2-core')
         implementation project(':clients:web-token-core')
-        // implementation project(':clients:web-core')
+        implementation project(':clients:web-core')
 
-        implementation 'org.springframework.boot:spring-boot-starter-security'
+
 
         implementation project(':commons')
     }
