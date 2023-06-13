@@ -69,10 +69,15 @@ public class SecurityConfig {
 
         log.info("CORS PROPERTIES: {}", corsProperties);
         configuration.setAllowCredentials(true);
-        configuration.setAllowedOrigins(corsProperties.getOrigins());
-        configuration.setAllowedMethods(corsProperties.getMethods());
-        configuration.setAllowedHeaders(corsProperties.getAllowedHeaders());
-        configuration.setExposedHeaders(corsProperties.getExposedHeaders());
+//        configuration.setAllowedOrigins(corsProperties.getOrigins());
+//        configuration.setAllowedMethods(corsProperties.getMethods());
+//        configuration.setAllowedHeaders(corsProperties.getAllowedHeaders());
+//        configuration.setExposedHeaders(corsProperties.getExposedHeaders());
+
+        configuration.setAllowedOrigins(List.of("http://localhost:3000", "http://localhost:3001"));
+        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
+        configuration.setAllowedHeaders(List.of("*"));
+        configuration.setExposedHeaders(List.of("*"));
 
         final var source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
