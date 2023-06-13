@@ -33,3 +33,4 @@ spring:
 oauth2:
   authorizedRedirectUris:
     - http://localhost:3001/oauth2/redirect
+    - http://localhost:3000/oauth2/redirect
