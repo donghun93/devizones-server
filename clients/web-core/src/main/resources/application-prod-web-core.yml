@@ -1,0 +1,5 @@
+cors:
+  origins: ${CORS_ORIGINS}
+  methods: ${CORS_METHODS}
+  allowed-headers: ${CORS_ALLOWED_HEADERS}
+  exposed-headers: ${CORS_EXPOSED_HEADERS}

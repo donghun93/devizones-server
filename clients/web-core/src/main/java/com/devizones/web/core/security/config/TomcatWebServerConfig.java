@@ -1,4 +1,4 @@
-package com.devizones.config;
+package com.devizones.web.core.security.config;
 
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;

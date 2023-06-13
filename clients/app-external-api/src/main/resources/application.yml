@@ -12,6 +12,8 @@ spring:
       - prod-refresh-token-redis
       - prod-post-application
       - prod-s3
+      - prod-web-core
+
 
 springdoc:
   swagger-ui:
