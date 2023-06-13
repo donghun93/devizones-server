@@ -15,4 +15,14 @@ public class CorsProperties {
     private final List<String> methods = new ArrayList<>();
     private final List<String> allowedHeaders = new ArrayList<>();
     private final List<String> exposedHeaders = new ArrayList<>();
+
+    @Override
+    public String toString() {
+        return "CorsProperties{" +
+                "origins=" + origins +
+                ", methods=" + methods +
+                ", allowedHeaders=" + allowedHeaders +
+                ", exposedHeaders=" + exposedHeaders +
+                '}';
+    }
 }

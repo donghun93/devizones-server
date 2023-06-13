@@ -1,6 +1,7 @@
 package com.devizones.web.core.security.config;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.web.embedded.tomcat.TomcatConnectorCustomizer;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
@@ -21,6 +22,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import java.util.Arrays;
 import java.util.List;
 
+@Slf4j
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
@@ -64,6 +66,8 @@ public class SecurityConfig {
 
     private CorsConfigurationSource corsConfigurationSource() {
         final var configuration = new CorsConfiguration();
+
+        log.info("CORS PROPERTIES: {}", corsProperties);
         configuration.setAllowedOrigins(corsProperties.getOrigins());
         configuration.setAllowedMethods(corsProperties.getMethods());
         configuration.setAllowedHeaders(corsProperties.getAllowedHeaders());
