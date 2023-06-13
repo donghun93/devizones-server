@@ -64,25 +64,5 @@ public class SecurityConfig {
         return http.build();
     }
 
-    @Bean
-    CorsConfigurationSource corsConfigurationSource() {
-        final var configuration = new CorsConfiguration();
 
-        log.info("CORS PROPERTIES: {}", corsProperties);
-        // configuration.setAllowCredentials(true);
-//        configuration.setAllowedOrigins(corsProperties.getOrigins());
-//        configuration.setAllowedMethods(corsProperties.getMethods());
-//        configuration.setAllowedHeaders(corsProperties.getAllowedHeaders());
-//        configuration.setExposedHeaders(corsProperties.getExposedHeaders());
-
-        configuration.setAllowedOrigins(List.of("*"));
-        configuration.setAllowedMethods(List.of("*"));
-        configuration.setAllowedHeaders(List.of("*"));
-        configuration.setExposedHeaders(List.of("*"));
-
-        final var source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-
-        return source;
-    }
 }
