@@ -83,7 +83,7 @@ public class OAuth2SecurityConfig {
         final var configuration = new CorsConfiguration();
 
         log.info("CORS PROPERTIES: {}", corsProperties);
-        configuration.setAllowCredentials(true);
+        // configuration.setAllowCredentials(true);
         configuration.setAllowedOrigins(corsProperties.getOrigins());
         configuration.setAllowedMethods(corsProperties.getMethods());
         configuration.setAllowedHeaders(corsProperties.getAllowedHeaders());
