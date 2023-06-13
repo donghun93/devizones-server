@@ -20,24 +20,22 @@ import java.util.Arrays;
 import java.util.List;
 
 @Slf4j
-@Configuration
-@EnableWebSecurity
+//@Configuration
+//@EnableWebSecurity
 @RequiredArgsConstructor
-@Order(1)
+//@Order(1)
 public class SecurityConfig {
-
-    private final CorsProperties corsProperties;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
-        http
-                .csrf(AbstractHttpConfigurer::disable)
-                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-                .formLogin(AbstractHttpConfigurer::disable)
-                .rememberMe(AbstractHttpConfigurer::disable)
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-        ;
+//        http
+//                .csrf(AbstractHttpConfigurer::disable)
+//                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+//                .formLogin(AbstractHttpConfigurer::disable)
+//                .rememberMe(AbstractHttpConfigurer::disable)
+//                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+//        ;
 
 
         http
@@ -64,26 +62,5 @@ public class SecurityConfig {
         return http.build();
     }
 
-    @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        final var configuration = new CorsConfiguration();
-
-         log.info("CORS PROPERTIES: {}", corsProperties);
-         configuration.setAllowCredentials(true);
-        configuration.setAllowedOrigins(corsProperties.getOrigins());
-        configuration.setAllowedMethods(corsProperties.getMethods());
-        configuration.setAllowedHeaders(corsProperties.getAllowedHeaders());
-        configuration.setExposedHeaders(corsProperties.getExposedHeaders());
-
-//        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3001"));
-//        configuration.setAllowedMethods(corsProperties.getMethods());
-//        configuration.setAllowedHeaders(List.of("*"));
-//        configuration.setExposedHeaders(List.of("*"));
-
-        final var source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-
-        return source;
-    }
 
 }

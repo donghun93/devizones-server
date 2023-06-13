@@ -34,3 +34,9 @@ oauth2:
   authorizedRedirectUris:
     - http://localhost:3001/oauth2/redirect
     - http://localhost:3000/oauth2/redirect
+    -
+cors:
+  origins: ${CORS_ORIGINS}
+  methods: ${CORS_METHODS}
+  allowed-headers: ${CORS_ALLOWED_HEADERS}
+  exposed-headers: ${CORS_EXPOSED_HEADERS}

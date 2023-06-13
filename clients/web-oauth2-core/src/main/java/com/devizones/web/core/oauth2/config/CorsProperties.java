@@ -1,4 +1,4 @@
-package com.devizones.web.core.security.config;
+package com.devizones.web.core.oauth2.config;
 
 import lombok.Getter;
 import org.springframework.boot.context.properties.ConfigurationProperties;

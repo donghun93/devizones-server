@@ -4,9 +4,11 @@ import com.devizones.web.core.oauth2.handler.OAuth2AuthenticationSuccessHandler;
 import com.devizones.web.core.oauth2.service.CustomOAuth2UserService;
 import com.devizones.web.core.oauth2.service.HttpCookieOAuth2AuthorizationRequestRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -14,7 +16,11 @@ import org.springframework.security.config.annotation.web.configurers.HeadersCon
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.authority.mapping.GrantedAuthoritiesMapper;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+@Slf4j
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
@@ -24,28 +30,28 @@ public class OAuth2SecurityConfig {
     private final CustomOAuth2UserService customOAuth2UserService;
     private final OAuth2AuthenticationSuccessHandler oAuth2AuthenticationSuccessHandler;
     private final HttpCookieOAuth2AuthorizationRequestRepository httpCookieOAuth2AuthorizationRequestRepository;
-
+    private final CorsProperties corsProperties;
 
     @Bean
     public SecurityFilterChain oauth2FilterChain(HttpSecurity http) throws Exception {
 
-//        http
-//                .authorizeHttpRequests((authz) -> authz
-//                        .mvcMatchers("/foo",
-//                                "/bar",
-//                                "/v3/api-docs/**",
-//                                "/swagger-ui/**",
-//                                "/swagger-ui.html")
-//                        .permitAll()
-//                        .anyRequest().authenticated())
-//                .oauth2Client();
-
         http
                 .csrf(AbstractHttpConfigurer::disable)
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .formLogin(AbstractHttpConfigurer::disable)
                 .rememberMe(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         ;
+
+
+//        http
+//                .authorizeHttpRequests(request ->
+//                        request
+//                                .requestMatchers(HttpMethod.OPTIONS, "/**")
+//                                .permitAll()
+//                                .requestMatchers("/swagger-ui/**", "/api-docs/**")
+//                                .permitAll()
+//                );
 
         http
                 .headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin));
@@ -71,5 +77,26 @@ public class OAuth2SecurityConfig {
     @Bean
     public GrantedAuthoritiesMapper customAuthorityMapper() {
         return new CustomAuthorityMapper();
+    }
+
+    CorsConfigurationSource corsConfigurationSource() {
+        final var configuration = new CorsConfiguration();
+
+        log.info("CORS PROPERTIES: {}", corsProperties);
+        configuration.setAllowCredentials(true);
+        configuration.setAllowedOrigins(corsProperties.getOrigins());
+        configuration.setAllowedMethods(corsProperties.getMethods());
+        configuration.setAllowedHeaders(corsProperties.getAllowedHeaders());
+        configuration.setExposedHeaders(corsProperties.getExposedHeaders());
+
+//        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3001"));
+//        configuration.setAllowedMethods(corsProperties.getMethods());
+//        configuration.setAllowedHeaders(List.of("*"));
+//        configuration.setExposedHeaders(List.of("*"));
+
+        final var source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+
+        return source;
     }
 }
