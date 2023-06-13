@@ -70,8 +70,7 @@ public class PostApiController {
 
     @Operation(
             summary = "게시글 목록 조회",
-            description = "게시글 목록을 조회할 수 있습니다.",
-            security = {@SecurityRequirement(name = "bearer-key")}
+            description = "게시글 목록을 조회할 수 있습니다."
     )
     @GetMapping
     public BaseResponse<ListPost.Response> getList(@ModelAttribute ListPost.ListPostRequest listPostRequest) {
@@ -84,8 +83,7 @@ public class PostApiController {
 
     @Operation(
             summary = "게시글 목록 검색",
-            description = "검색어를 사용해서 게시글 목록을 조회합니다.",
-            security = {@SecurityRequirement(name = "bearer-key")}
+            description = "검색어를 사용해서 게시글 목록을 조회합니다."
     )
     @GetMapping("/search")
     public BaseResponse<ListPost.Response> getSearchList(@ModelAttribute ListSearchPost.ListSearchPostRequest listSearchPostRequest) {

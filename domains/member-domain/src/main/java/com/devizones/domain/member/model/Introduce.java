@@ -11,7 +11,7 @@ import static com.devizones.domain.member.exception.MemberErrorCode.INTRODUCE_MA
 @Getter
 public class Introduce {
     public final static int MAX_LENGTH = 100;
-    public final static int MIN_LENGTH = 10;
+    public final static int MIN_LENGTH = 1;
     private String value;
 
     @Builder
@@ -28,7 +28,7 @@ public class Introduce {
 
     private void setIntroduce(String introduce) {
         if (StringUtils.hasText(introduce)) {
-            if (introduce.length() < MIN_LENGTH || introduce.length() > MAX_LENGTH) {
+            if (introduce.length() > MAX_LENGTH) {
                 throw new MemberException(
                         String.format("자기소개는 최대 %d까지 입력해주세요", MAX_LENGTH),
                         INTRODUCE_MAX_LENGTH_OVER
