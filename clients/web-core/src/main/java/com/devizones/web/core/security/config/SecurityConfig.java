@@ -65,25 +65,25 @@ public class SecurityConfig {
     }
 
     @Bean
-    CorsConfigurationSource corsConfigurationSource() {
+    private CorsConfigurationSource corsConfigurationSource() {
         final var configuration = new CorsConfiguration();
 
-        // log.info("CORS PROPERTIES: {}", corsProperties);
-        // configuration.setAllowCredentials(true);
-//        configuration.setAllowedOrigins(corsProperties.getOrigins());
-//        configuration.setAllowedMethods(corsProperties.getMethods());
-//        configuration.setAllowedHeaders(corsProperties.getAllowedHeaders());
-//        configuration.setExposedHeaders(corsProperties.getExposedHeaders());
-
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3001"));
+         log.info("CORS PROPERTIES: {}", corsProperties);
+         configuration.setAllowCredentials(true);
+        configuration.setAllowedOrigins(corsProperties.getOrigins());
         configuration.setAllowedMethods(corsProperties.getMethods());
-        configuration.setAllowedHeaders(List.of("*"));
-        configuration.setExposedHeaders(List.of("*"));
+        configuration.setAllowedHeaders(corsProperties.getAllowedHeaders());
+        configuration.setExposedHeaders(corsProperties.getExposedHeaders());
+
+//        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3001"));
+//        configuration.setAllowedMethods(corsProperties.getMethods());
+//        configuration.setAllowedHeaders(List.of("*"));
+//        configuration.setExposedHeaders(List.of("*"));
 
         final var source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
 
         return source;
     }
-    
+
 }
