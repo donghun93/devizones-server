@@ -65,7 +65,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    private CorsConfigurationSource corsConfigurationSource() {
+    public CorsConfigurationSource corsConfigurationSource() {
         final var configuration = new CorsConfiguration();
 
          log.info("CORS PROPERTIES: {}", corsProperties);
